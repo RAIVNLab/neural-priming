@@ -62,11 +62,42 @@ The other datasets (ImageNetV2, ImageNet-a, r, and sketch) can be found on their
 
 
 ### Zero-shot Priming
+Example commands for reproducing results:
 ```bash
 python prime.py --dataset Flowers102 --shots 0 --alpha .7 --text --prime --subset_path /data/Flowers102 --retrain
 ```
 
+```bash
+python prime.py --dataset StanfordCars --shots 0 --text --prime --subset_path /data/StanfordCars --retrain
+```
+
+```bash
+python prime.py --dataset FGVCAircraft --shots 0 --text --prime --subset_path /data/FGVCAircraft --retrain
+```
+
+```bash
+python prime.py --dataset ImageNet --shots 0 --text --prime --cupl --subset_path /data/ImageNet --val_path /data/ImageNet/val --retrain
+```
+
+Zero-shot Results:
+|                         | ImageNet | Stanford Cars | FGVC Aircraft | Flowers102 | Food101 | Oxford Pets | SUN397 |
+|-------------------------|----------|---------------|---------------|------------|---------|-------------|--------|
+| CLIP Baseline            | 68.30    | 87.40         | 25.86         | 71.65      | 86.58   | 90.21       | 67.35  |
+| CuPL             | 70.25    | 88.63         | 29.64         | 72.32      | 86.20   | 91.16       | 70.80  |
+| Priming (Ours)          | 70.75    | 89.30         | 33.03         | 79.81      | 86.66   | 91.87   | 71.21  |
+| Priming + CuPL (Ours)   | 71.38 | 90.23     | 36.00     | 80.04  | 86.86 | 91.85       | 72.35 |
+
+
 ### Few-shot Priming
+Example commands for reproducing results. Note that alpha should be depend on the number of shots used. See paper for exact alpha values. 
+
+```bash
+python prime.py --dataset Flowers102 --shots 2 --alpha .5 --text --prime --subset_path /data/Flowers102 --retrain
+```
+
+```bash
+python prime.py --dataset FGVCAircraft --shots 0 --alpha .5 --text --prime --subset_path /data/Flowers102 --retrain
+```
 
 
 ### Transductive Priming
