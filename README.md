@@ -71,9 +71,6 @@ python prime.py --dataset Flowers102 --shots 0 --alpha .7 --text --prime --subse
 python prime.py --dataset StanfordCars --shots 0 --text --prime --subset_path /data/StanfordCars --retrain
 ```
 
-```bash
-python prime.py --dataset FGVCAircraft --shots 0 --text --prime --subset_path /data/FGVCAircraft --retrain
-```
 
 ```bash
 python prime.py --dataset ImageNet --shots 0 --text --prime --cupl --subset_path /data/ImageNet --val_path /data/ImageNet/val --retrain
@@ -89,24 +86,30 @@ Zero-shot Results:
 
 
 ### Few-shot Priming
-Example commands for reproducing results. Note that alpha should be depend on the number of shots used. See paper for exact alpha values. 
+Example commands for reproducing few-shot results. Note that alpha depends on the number of shots used. 
 
 ```bash
-python prime.py --dataset Flowers102 --shots 2 --alpha .5 --text --prime --subset_path /data/Flowers102 --retrain
+python prime.py --dataset Flowers102 --shots 2 --alpha .58 --text --prime --subset_path /data/Flowers102 --retrain
 ```
 
 ```bash
-python prime.py --dataset FGVCAircraft --shots 0 --alpha .5 --text --prime --subset_path /data/Flowers102 --retrain
+python prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --text --prime --subset_path /data/FGVCAircraft --retrain
 ```
 
 
 ### Transductive Priming
-To prime and evaluate the model on the distribution shift datasets. 
+Example commands for reproducing transductive results on distribution shift datasets:
 
 
 ```bash
 python prime.py --dataset ImageNet-V2 --shots 0 --text --prime --cupl  --subset_path /data/ImageNetv2 --val_path /data/ImageNetV2-matched-frequency --custom_data --retrain
 ```
+
+|                                      | ImageNet-V2 | ImageNet-R | ImageNet Sketch | ImageNet-A |
+|--------------------------------------|-------------|------------|-----------------|------------|
+| CLIP                          | 59.35       | 64.57      | 57.05           | 35.95      |
+| Transduct. Priming (Ours)            |60.76   | **79.37**  | **59.97**       | **38.20**  |
+
 
 Command line options: 
 
