@@ -65,7 +65,10 @@ The other datasets (ImageNetV2, ImageNet-a, r, and sketch) can be found on their
 Example commands for priming and evaluating the model:
 - ```python prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path /data/Flowers102 --retrain```
 - ```python prime.py --dataset StanfordCars --shots 0 --prime --subset_path /data/StanfordCars --retrain```
-- ```python prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet --val_path /data/ImageNet/val --retrain```
+- ```bash
+  python prime.py --dataset ImageNet --shots 0 --prime --cupl /
+  --subset_path /data/ImageNet --val_path /data/ImageNet/val --retrain
+  ```
 
 Zero-shot Results:
 |                         | ImageNet | Stanford Cars | FGVC Aircraft | Flowers102 | Food101 | Oxford Pets | SUN397 |
