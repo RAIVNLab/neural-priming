@@ -36,7 +36,7 @@ Alternatively, we provide code in the **Text Filtering and Downloading Data** se
 
 #### Evaluation Data 
 
-To download ImageNet-1k: Download from this Kaggle [link](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data?select=ILSVRC). The validation and train set should be in ImageFolder format which looks like the following. 
+- To download ImageNet-1k: Download from this Kaggle [link](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data?select=ILSVRC). The validation and train set should be in ImageFolder format which looks like the following. 
 ```
 ├── ImageNet_Train
     ├── n01440764
@@ -53,9 +53,9 @@ To download ImageNet-1k: Download from this Kaggle [link](https://www.kaggle.com
 ```
 
 
-Torchvision Datasets: The 6 transfer learning datasets (StanfordCars, FGVC Aircraft, Flowers102, OxfordPets, and SUN397) will automatically be downloaded upon running the training code. 
+- Torchvision Datasets: The 6 transfer learning datasets (StanfordCars, FGVC Aircraft, Flowers102, OxfordPets, and SUN397) will automatically be downloaded upon running the training code. 
 
-The other datasets (ImageNetV2, ImageNet-a, r, and sketch) can be found on their respective webpages). For ImageNetV2 we use the *ImageNetV2-matched-frequency* version. 
+- The other datasets (ImageNetV2, ImageNet-a, r, and sketch) can be found on their respective webpages). For ImageNetV2 we use the *ImageNetV2-matched-frequency* version. 
 
 
 ## Train and Evaluate Models
