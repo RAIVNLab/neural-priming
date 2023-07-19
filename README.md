@@ -26,3 +26,21 @@ conda create -n neural-priming-env python=3.8
 ```bash
 pip install -r requirements.txt
 ```
+
+### Downloading Data
+
+
+## Priming and Evaluating Models
+
+
+
+
+
+
+
+
+
+### Text Filtering
+
+
+### Transductive Filtering
