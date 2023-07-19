@@ -91,8 +91,8 @@ python prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --text --prime --su
 ```
 
 <div>
-    <img src='assets/Aircraft_FSL.jpeg' alt='Image 1' style='float: left; width: 48%; margin-right: 1%;'>
-    <img src='assets/Flowers_FSL.jpeg' alt='Image 2' style='float: left; width: 48%;'>
+    <img src='assets/Aircraft_FSL.jpeg' alt='FGVC_FSL' style='float: left; width: 48%; margin-right: 1%;'>
+    <img src='assets/Flowers_FSL.jpeg' alt='Flowers_FSL' style='float: left; width: 48%;'>
 </div>
 
 
