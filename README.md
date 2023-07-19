@@ -96,10 +96,10 @@ For further command line options see `args.py`.
 ## Creating Custom Subsets from LAION-2B
 
 
+### Text filtering and Downloading Images
 
 
 
 
-
-## Transductive Filtering
+### Transductive Filtering
 
