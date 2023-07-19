@@ -1,6 +1,6 @@
 # Neural Priming
 
-Pytorch implementation of [Neural Priming for Sample-Efficient Adaptation](https://arxiv.org/pdf/2306.10191.pdf).
+Pytorch implementation of [Neural Priming for Sample-Efficient Adaptation](https://arxiv.org/pdf/2306.10191.pdf). Improve transfer performance and robustness by recalling relevant data from the pretraining set. 
 
 
 
