@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 
 
-### Text Filtering
+## Text Filtering
 
 
-### Transductive Filtering
+## Transductive Filtering
