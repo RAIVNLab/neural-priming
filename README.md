@@ -86,7 +86,12 @@ python prime.py --dataset Flowers102 --shots 2 --alpha .58 --text --prime --subs
 ```bash
 python prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --text --prime --subset_path /data/FGVCAircraft --retrain
 ```
-<img src='assets/fsl_plot.jpg'>
+
+<div>
+    <img src='assets/Cars_FSL.jpeg' alt='Image 1' style='float: left; width: 48%; margin-right: 1%;'>
+    <img src='assets/Flowers_FSL.jpeg' alt='Image 2' style='float: left; width: 48%;'>
+</div>
+
 
 ### Transductive Priming
 Example commands for reproducing transductive results on distribution shift datasets:
