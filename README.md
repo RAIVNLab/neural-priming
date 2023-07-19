@@ -107,7 +107,7 @@ python prime.py --dataset ImageNet-V2 --shots 0 --text --prime --cupl  --subset_
 |                                      | ImageNet-V2 | ImageNet-R | ImageNet Sketch | ImageNet-A |
 |--------------------------------------|-------------|------------|-----------------|------------|
 | CLIP                          | 62.61       | 64.57      | 57.05           | 35.95      |
-| Transduct. Priming (Ours)            |60.76   | 79.37  | 59.97       | 38.20  |
+| Transduct. Priming (Ours)            |64.23   | 79.37  | 59.97       | 38.20  |
 
 
 Command line options: 
