@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ### Downloading The Data
 
 #### Priming Data (LAION-2B)
-To get started quickly we provide the priming subsets of LAION-2B for each target task. The link to download the data from Google Drive can be found here. If downloading to a headless server we recommend using [gdown](https://github.com/wkentaro/gdown). Once downloaded, unzip and place in the `/data` folder in the root directory. 
+To get started quickly we provide the priming subsets of LAION-2B for each target task. The link to download the data from Google Drive can be found [here](https://drive.google.com/drive/folders/1yQfr6IYrG8_ViuQW7hOtHHr6yalrQ8d0?usp=sharing). If downloading to a headless server we recommend using [gdown](https://github.com/wkentaro/gdown). Once downloaded, unzip and place in the `/data` folder in the root directory. 
 
 Alternatively, we provide code in the **Text Filtering and Downloading Data** section for creating your own priming subset.  
 
