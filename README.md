@@ -85,11 +85,11 @@ Zero-shot Results:
 Example commands for reproducing few-shot results. Note that alpha depends on the number of shots used. 
 
 ```bash
-python priming/prime.py --dataset Flowers102 --shots 2 --alpha .58 --text --prime --subset_path /data/Flowers102 --retrain
+python priming/prime.py --dataset Flowers102 --shots 2 --alpha .58 --prime --subset_path /data/Flowers102 --retrain
 ```
 
 ```bash
-python priming/prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --text --prime --subset_path /data/FGVCAircraft --retrain
+python priming/prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --prime --subset_path /data/FGVCAircraft --retrain
 ```
 
 <div>
@@ -103,7 +103,7 @@ Example commands for reproducing transductive results on the distribution shift 
 
 
 ```bash
-python priming/prime.py --dataset ImageNet-V2 --shots 0 --text --prime --cupl  --subset_path /data/ImageNetv2 --val_path /data/ImageNetV2-matched-frequency --custom_data --retrain
+python prime.py --dataset ImageNet-V2 --shots 0 --prime --cupl  --subset_path /data/ImageNetv2 --val_path /data/ImageNetV2-matched-frequency --custom_data --retrain
 ```
 
 |                                      | ImageNet-V2 | ImageNet-R | ImageNet Sketch | ImageNet-A |
@@ -129,7 +129,21 @@ Command line options:
 For full list of command line options see `args.py`. 
 
 
-## Creating Custom Subsets from LAION-2B
+## Creating Subsets from LAION-2B
+To quickly filter through the LAION-2B dataset using text, we use SQLite in python. The data base parquets can be downloaded [here](https://drive.google.com/drive/folders/1yQfr6IYrG8_ViuQW7hOtHHr6yalrQ8d0?usp=sharing). We recommend [gdown](https://github.com/wkentaro/gdown) if downloading to a headless server. Once downloaded, unzip and place them in the `/parquets` folder. Note that placing the parquets on SSD will significantly improve search speed. 
+
+Given the class names for a dataset, the code will filter for LAION-2B entries which have captions containing the class name and write the meta data to a json. Example to command to filter for ImageNet classes:
+
+```bash
+python ./DataFiltering/FilterData.py -o ./ImageNet_Filtered -q ImageNet \
+ -d  /parquets/parquet_db_real/part-00{000..123}-5114fd87-297e-42b0-9d11-50f1df323dfa-c000.snappy.db --template
+```
+
+To filter using with respect to your own custom dataset, places the class names in a .py file in templates and set it as the `--q` argument in the above command. 
+
+Once the data is stored in the json, you can download the data from URLS using the following command:
+
+
 
 
 ### Text filtering and Downloading Images
