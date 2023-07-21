@@ -55,7 +55,7 @@ Alternatively, we provide code in the **Text Filtering and Downloading Data** se
 
 - Torchvision Datasets: The 6 transfer learning datasets (StanfordCars, FGVC Aircraft, Flowers102, OxfordPets, and SUN397) will automatically be downloaded upon running the training code. 
 
-- The other datasets (ImageNetV2, ImageNet-a, r, and sketch) can be found on their respective webpages). For ImageNetV2 we use the *ImageNetV2-matched-frequency* version. 
+- The other datasets (ImageNetV2, ImageNet-a, r, and sketch) can be found on their respective webpages. For ImageNetV2 we use the *ImageNetV2-matched-frequency* version. 
 
 
 ## Train and Evaluate Models
