@@ -63,14 +63,14 @@ Alternatively, we provide code in the **Text Filtering and Downloading Data** se
 
 ### Zero-shot Priming
 Example commands for priming and evaluating the model:
-- ```python prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path /data/Flowers102 --retrain```
-- ```python prime.py --dataset StanfordCars --shots 0 --prime --subset_path /data/StanfordCars --retrain```
+- ```python priming/prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path /data/Flowers102 --retrain```
+- ```python priming/prime.py --dataset StanfordCars --shots 0 --prime --subset_path /data/StanfordCars --retrain```
 - ```
-  python prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet --train_path /data/ImageNet/train --val_path /data/ImageNet/val --retrain
+  python priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet --train_path /data/ImageNet/train --val_path /data/ImageNet/val --retrain
   ```
 To run the equivalent baselines, omit the `--prime` flag. For example:
 
-```python prime.py --dataset Flowers102 --shots 0  --subset_path /data/Flowers102 --retrain```
+```python priming/prime.py --dataset Flowers102 --shots 0  --subset_path /data/Flowers102 --retrain```
 
 Zero-shot Results:
 |                         | ImageNet | Stanford Cars | FGVC Aircraft | Flowers102 | Food101 | Oxford Pets | SUN397 |
@@ -85,11 +85,11 @@ Zero-shot Results:
 Example commands for reproducing few-shot results. Note that alpha depends on the number of shots used. 
 
 ```bash
-python prime.py --dataset Flowers102 --shots 2 --alpha .58 --text --prime --subset_path /data/Flowers102 --retrain
+python priming/prime.py --dataset Flowers102 --shots 2 --alpha .58 --text --prime --subset_path /data/Flowers102 --retrain
 ```
 
 ```bash
-python prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --text --prime --subset_path /data/FGVCAircraft --retrain
+python priming/prime.py --dataset FGVCAircraft --shots 3 --alpha .55 --text --prime --subset_path /data/FGVCAircraft --retrain
 ```
 
 <div>
@@ -103,7 +103,7 @@ Example commands for reproducing transductive results on the distribution shift 
 
 
 ```bash
-python prime.py --dataset ImageNet-V2 --shots 0 --text --prime --cupl  --subset_path /data/ImageNetv2 --val_path /data/ImageNetV2-matched-frequency --custom_data --retrain
+python priming/prime.py --dataset ImageNet-V2 --shots 0 --text --prime --cupl  --subset_path /data/ImageNetv2 --val_path /data/ImageNetV2-matched-frequency --custom_data --retrain
 ```
 
 |                                      | ImageNet-V2 | ImageNet-R | ImageNet Sketch | ImageNet-A |
