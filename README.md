@@ -126,7 +126,7 @@ Command line options:
 - `--val_path` Path to the evaluation dataset. Only required for ImageNet and the distribution shift datasets. 
 
 
-For further command line options see `args.py`. 
+For full list of command line options see `args.py`. 
 
 
 ## Creating Custom Subsets from LAION-2B
