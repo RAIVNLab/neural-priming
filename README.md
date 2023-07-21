@@ -69,6 +69,8 @@ Example commands for priming and evaluating the model:
   python prime.py --dataset ImageNet --shots 0 --prime --cupl /
   --subset_path /data/ImageNet --val_path /data/ImageNet/val --retrain
   ```
+To run the baseline, omit the `--prime` flag. For example:
+```python prime.py --dataset Flowers102 --shots 0  --subset_path /data/Flowers102 --retrain```
 
 Zero-shot Results:
 |                         | ImageNet | Stanford Cars | FGVC Aircraft | Flowers102 | Food101 | Oxford Pets | SUN397 |
