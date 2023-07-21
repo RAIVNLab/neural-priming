@@ -66,7 +66,7 @@ Example commands for priming and evaluating the model:
 - ```python priming/prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path /data/Flowers102 --retrain```
 - ```python priming/prime.py --dataset StanfordCars --shots 0 --prime --subset_path /data/StanfordCars --retrain```
 - ```
-  python priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet --train_path /data/ImageNet/train --val_path /data/ImageNet/val --retrain
+  python priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet_subset --train_path /data/ImageNet/train --val_path /data/ImageNet/val --retrain
   ```
 To run the equivalent baselines, omit the `--prime` flag. For example:
 
@@ -136,14 +136,14 @@ Given the class names for a dataset, the code will filter for LAION-2B entries w
 
 ```bash
 python ./DataFiltering/FilterData.py -o ./ImageNet_Filtered -q ImageNet \
- -d  /parquets/parquet_db_real/part-00{000..123}-5114fd87-297e-42b0-9d11-50f1df323dfa-c000.snappy.db --template
+ -d  /parquets/part-00{000..123}-5114fd87-297e-42b0-9d11-50f1df323dfa-c000.snappy.db --template
 ```
 
 To filter using with respect to your own custom dataset, places the class names in a .py file in templates and set it as the `--q` argument in the above command. 
 
 Once the data is stored in the json, you can download the data from URLS using the following command:
 
-
+```python DataFiltering/download_urls.py --r ./DataFiltering/ImageNet_Filtered/ --w ImageNet_subset```
 
 
 ### Text filtering and Downloading Images
