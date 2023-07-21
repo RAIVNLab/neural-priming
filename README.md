@@ -138,6 +138,7 @@ Given the class names for a dataset, the code will filter for LAION-2B entries w
 python ./DataFiltering/FilterData.py -o ./ImageNet_Filtered -q ImageNet \
  -d  /parquets/part-00{000..123}-5114fd87-297e-42b0-9d11-50f1df323dfa-c000.snappy.db --template
 ```
+Adjust the line text `{000..123}` if using fewer parquets. 
 
 To filter using with respect to your own custom dataset, places the class names in a .py file in templates and set it as the `--q` argument in the above command. 
 
