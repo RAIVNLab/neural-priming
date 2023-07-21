@@ -65,11 +65,11 @@ Alternatively, we provide code in the **Text Filtering and Downloading Data** se
 Example commands for priming and evaluating the model:
 - ```python prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path /data/Flowers102 --retrain```
 - ```python prime.py --dataset StanfordCars --shots 0 --prime --subset_path /data/StanfordCars --retrain```
-- ```bash
-  python prime.py --dataset ImageNet --shots 0 --prime --cupl /
-  --subset_path /data/ImageNet --val_path /data/ImageNet/val --retrain
+- ```
+  python prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet --train_path /data/ImageNet/train --val_path /data/ImageNet/val --retrain
   ```
-To run the baseline, omit the `--prime` flag. For example:
+To run the equivalent baselines, omit the `--prime` flag. For example:
+
 ```python prime.py --dataset Flowers102 --shots 0  --subset_path /data/Flowers102 --retrain```
 
 Zero-shot Results:
@@ -115,6 +115,7 @@ python prime.py --dataset ImageNet-V2 --shots 0 --text --prime --cupl  --subset_
 Command line options: 
 
 - `--prime` Use the priming subset to condition the model.
+- `--retrain` Reprocess the image features from the train/val/subset datasets. If already cached, omit to avoid reprocessing. 
 - `--text` Initialize the classifier with the text prompts from OpenAI for ensembling with image features.
 - `--cupl` Initialize the classifier with text prompts from CuPL and OpenAI.
 - `--cache` Whether to cache the image features of the train/test/priming subset. Set to true by default. Set to false if low on disk space. 
@@ -122,7 +123,7 @@ Command line options:
 - `--shots` Number of examples to be used from the target training set (not to be confused with the priming subset).
 - `--model` Change the base model. The priming subsets provided above are from the B-16 model.
 - `--subset_path` Path to the priming subset.
-- `--val_path` Path to the evaluation dataset. Only needed for ImageNet and the distribution shift datasets. 
+- `--val_path` Path to the evaluation dataset. Only required for ImageNet and the distribution shift datasets. 
 
 
 For further command line options see `args.py`. 
