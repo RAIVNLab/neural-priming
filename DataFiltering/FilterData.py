@@ -67,7 +67,7 @@ def get_args():
 def main():
     args = get_args()
     if args.template:
-        print('DataCreation.Templates.' + args.query)
+        print('priming.Templates.' + args.query)
         dataset_obj = importlib.import_module('DataCreation.Templates.' + args.query)
         words = dataset_obj.classes
     else:
