@@ -67,8 +67,8 @@ def get_args():
 def main():
     args = get_args()
     if args.template:
-        print('priming.Templates.' + args.query)
-        dataset_obj = importlib.import_module('DataCreation.Templates.' + args.query)
+        print('Priming.Templates.' + args.query)
+        dataset_obj = importlib.import_module('Priming.Templates.' + args.query)
         words = dataset_obj.classes
     else:
         if not os.path.exists(args.query):
