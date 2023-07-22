@@ -153,7 +153,7 @@ Note that links break over time. A signficantly smaller number of images may be 
 
 
 ### Transductive Filtering
-Once the **Text Filtering and Downloading Images* has been completed, transductive filtering can be performed on the text-filtered subset. An example command would be the following:
+Once the **Text Filtering and Downloading Images** has been completed, transductive filtering can be performed on the text-filtered subset. An example command would be the following:
 
 Example commands: 
 ```bash
