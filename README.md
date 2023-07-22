@@ -138,14 +138,13 @@ Given the class names for a dataset, the code will filter for LAION-2B entries w
 python ./DataFiltering/FilterData.py -o ./ImageNet_Filtered -q ImageNet \
  -d  /parquets/part-00{000..123}-5114fd87-297e-42b0-9d11-50f1df323dfa-c000.snappy.db --template
 ```
-Adjust the line text `{000..123}` if using fewer parquets. 
-
-To filter using with respect to your own custom dataset, places the class names in a .py file in templates and set it as the `--q` argument in the above command. 
+Adjust the line text `{000..123}` if using fewer parquets. To filter using with respect to your own custom dataset, places the class names in a .py file in templates and set it as the `--q` argument in the above command. 
 
 Once the data is stored in the json, you can download the data from URLS using the following command:
 
 ```python DataFiltering/download_urls.py --r ./DataFiltering/ImageNet_Filtered/ --w ImageNet_subset```
 
+Note that links break over time. A signficantly smaller number of images may be actually downloaded.
 
 ### Text filtering and Downloading Images
 
