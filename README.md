@@ -144,7 +144,7 @@ Adjust the line text `{000..123}` if using fewer parquets. To filter using with 
 
 Once the data is stored in the json, you can download the data from URLS using the following command:
 
-```python DataFiltering/download_urls.py --r ./DataFiltering/ImageNet_Filtered/ --w ImageNet_subset```
+```python DataFiltering/download_urls.py --r ./DataFiltering/ImageNet_Filtered/ --w ./data/ImageNet_filtered```
 
 Note that links break over time. A signficantly smaller number of images may be actually downloaded.
 
@@ -153,4 +153,16 @@ Note that links break over time. A signficantly smaller number of images may be 
 
 
 ### Transductive Filtering
-
+Example commands: 
+```bash
+python transductive_eval.py \
+        --dataset-type ImageNet \
+        --retrieval-path "./data/ImageNet_filtered" \
+        --transductive-path="/usr/data" \
+        --cache-path="./data/kshot_cache_ImageNet" \
+        --out-dir="/ImageNet" \
+        --retrievals-per-image=10 \
+        --prompt-file=./data/ImageNet.json \
+        --k-shot=10 \
+        --split="train"
+```
