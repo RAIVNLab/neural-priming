@@ -130,6 +130,8 @@ For full list of command line options see `args.py`.
 
 
 ## Creating Subsets from LAION-2B
+
+### Text filtering and Downloading Images
 To quickly filter through the LAION-2B dataset using text, we use SQLite in python. The data base parquets can be downloaded [here](https://drive.google.com/drive/folders/1yQfr6IYrG8_ViuQW7hOtHHr6yalrQ8d0?usp=sharing). We recommend [gdown](https://github.com/wkentaro/gdown) if downloading to a headless server. Once downloaded, unzip and place them in the `/parquets` folder. Note that placing the parquets on SSD will significantly improve search speed. 
 
 Given the class names for a dataset, the code will filter for LAION-2B entries which have captions containing the class name and write the meta data to a json. Example to command to filter for ImageNet classes:
@@ -146,7 +148,6 @@ Once the data is stored in the json, you can download the data from URLS using t
 
 Note that links break over time. A signficantly smaller number of images may be actually downloaded.
 
-### Text filtering and Downloading Images
 
 
 
