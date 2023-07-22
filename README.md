@@ -153,9 +153,11 @@ Note that links break over time. A signficantly smaller number of images may be 
 
 
 ### Transductive Filtering
+Once the **Text Filtering and Downloading Images* has been completed, transductive filtering can be performed on the text-filtered subset. An example command would be the following:
+
 Example commands: 
 ```bash
-python transductive_eval.py \
+python ./DataFilering/TransFiltering.py \
         --dataset-type ImageNet \
         --retrieval-path "./data/ImageNet_filtered" \
         --transductive-path="/usr/data" \
@@ -166,3 +168,5 @@ python transductive_eval.py \
         --k-shot=10 \
         --split="train"
 ```
+
+See the `TransFiltering.py` file for the full list of arguments. 
