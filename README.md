@@ -155,7 +155,8 @@ Note that links break over time. A signficantly smaller number of images may be 
 ### Transductive Filtering
 Once the **Text Filtering and Downloading Images** has been completed, transductive filtering can be performed on the text-filtered subset. An example command would be the following:
 
-Example commands: 
+Example command. Given the priming pool `ImageNet_filtered` and a path to a ground-truth dataset (`ImageNet`), this takes 10 dataset train images per class (`--k-shot=10`) and retrieves the 10 closest images for each of these from the priming pool (`--retrievals-per-image=10`): 
+
 ```bash
 python ./DataFilering/TransFiltering.py \
         --dataset-type ImageNet \
@@ -169,4 +170,37 @@ python ./DataFilering/TransFiltering.py \
         --split="train"
 ```
 
-See the `TransFiltering.py` file for the full list of arguments. 
+This returns a dataset in the `ImageFolder` format, where each retrieved image is labeled by its given class in the priming pool. If you use `--split="test"`, this becomes the transductive setting discussed in the paper. You can add the `--clip-filter` command to apply a CLIP classifier to this new pool to further refine the dataset.
+
+See the `DataFiltering/TransFiltering.py` file for more details. Below is a list of arguments and descriptions:
+
+```bash
+usage: TransFiltering.py [-h] --retrieval-path RETRIEVAL_PATH --transductive-path TRANSDUCTIVE_PATH [--k-shot K_SHOT]
+                     [--cache-path CACHE_PATH] --out-dir OUT_DIR [--retrievals-per-image RETRIEVALS_PER_IMAGE] [--clip-filter]
+                     [--prompt-file PROMPT_FILE] [--dataset-type DATASET_TYPE] [--clip-score-filter CLIP_SCORE_FILTER]
+                     [--split SPLIT] [--model MODEL] [--pretrained PRETRAINED]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --retrieval-path RETRIEVAL_PATH
+                        Path to retrieval reservoir (clean subset of LAION)
+  --transductive-path TRANSDUCTIVE_PATH
+                        Path to transfer evaluation dataset (to be used in a transductive fashion)
+  --k-shot K_SHOT       Number of shots per class, only used in train-time data augmentation
+  --cache-path CACHE_PATH
+                        Path to cache
+  --out-dir OUT_DIR     Path to output directory (dataset in ImageFolder format)
+  --retrievals-per-image RETRIEVALS_PER_IMAGE
+                        Number of retrievals per image
+  --clip-filter         Filter using CLIP before transductive retrieval
+  --prompt-file PROMPT_FILE
+                        Path to prompt file, format classname to list of prompts
+  --dataset-type DATASET_TYPE
+                        Type of dataset
+  --clip-score-filter CLIP_SCORE_FILTER
+                        Filter using CLIP score, after clip classification filtering
+  --split SPLIT         Split to use, only applies to non-ImageFolder datasets
+  --model MODEL         Model arch from open_clip to use for filtering
+  --pretrained PRETRAINED
+                        Pre-trained weights from open_clip to use for filtering. See open_clip repo for choices
+```
