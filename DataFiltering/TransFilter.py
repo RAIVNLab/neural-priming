@@ -92,6 +92,18 @@ def get_args():
         default="val",
         help="Split to use, only applies to non-ImageFolder datasets",
     )
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="ViT-B-16",
+        help="Model arch from open_clip to use for filtering"
+    )
+    parser.add_argument(
+        "--pretrained",
+        type=str,
+        default="laion2b_s34b_b88k",
+        help="Pre-trained weights from open_clip to use for filtering. See open_clip repo for choices"
+    )
     args = parser.parse_args()
 
     return args
@@ -121,7 +133,7 @@ def main():
     # Getting model
     print("=> Acquiring model")
     model, _, preprocess = open_clip.create_model_and_transforms(
-        "ViT-B-16", "laion2b_s34b_b88k", device="cuda"
+        args.model, args.pretrained, device="cuda"
     )
 
     # Getting retrieval dataset/loader
