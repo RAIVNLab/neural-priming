@@ -18,6 +18,7 @@ def parse_arguments():
     parser.add_argument('--train_path', type=str, default=None,help = 'Directory for train data. Needed for non-torch vision datasets.')
     parser.add_argument('--batch_size', type=int, default=16, help = 'Adjust to use memory appropriately')
     parser.add_argument('--cache', type=bool, default=True, help = 'Cache image features for faster iteration.')
+    parser.add_argument('--cuda', type=bool, default=True, help = 'Cache image features for faster iteration.')
     parser.add_argument('--cache_path', type=str, default='./cache/',help = 'Base directory.')
     parser.add_argument('--results_path', type=str, default='./results/',help = 'Base directory.')
     parser.add_argument('--custom_data', action='store_true', help = 'Whether to use a custom loader. Use for ImageNetv2, and other ImageNet variants as well as SUN.')
