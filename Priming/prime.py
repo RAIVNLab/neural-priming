@@ -137,7 +137,8 @@ if args.prime:
 
 print('creating OpenAI text classifier')
 model.eval()
-model.cuda()
+if args.cuda:
+    model.cuda()
 tokenizer = open_clip.get_tokenizer(args.model)
 text = tokenizer(class_names)
 text_features = zeroshot_classifier(class_names, templates, model, tokenizer).cpu().numpy().T
@@ -155,7 +156,8 @@ if args.retrain and dataset_name not in Shift_Datasets and args.shots > 0:
     train_set_cpu = None
     train_labels = None
     for x,y in tqdm(train_set):
-        x = x.cuda()
+        if args.cuda:
+            x = x.cuda()
         feats = model.encode_image(x).detach().cpu()
         feats /= feats.norm(dim=-1, keepdim=True)
         feats = feats.squeeze(0).numpy()
@@ -184,7 +186,8 @@ if args.retrain:
     test_set_cpu = None
     test_labels = None
     for x,y in tqdm(test_set):
-        x = x.cuda()
+        if args.cuda:
+            x = x.cuda()
         feats = model.encode_image(x).detach().cpu()
         feats /= feats.norm(dim=-1, keepdim=True)
         feats = feats.numpy()
@@ -212,7 +215,8 @@ if args.retrain and args.prime:
     print('Parsing Subset, length {}'.format(len(subset)))
 
     for x,y in tqdm(subset):
-        x = x.cuda()
+        if args.cuda:
+            x = x.cuda()
         feats = model.encode_image(x).detach().cpu()
         feats /= feats.norm(dim=-1, keepdim=True)
         feats = feats.numpy()
