@@ -1,5 +1,6 @@
 import argparse
 import os
+import numpy
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
@@ -9,6 +10,7 @@ def parse_arguments():
     parser.add_argument('--test_path', type=str, default='',help = 'Path to test dataset')
     parser.add_argument('--model', type=str, default='ViT-B-16',help = 'Model')
     parser.add_argument('--shots', type=int, default=1,help = 'Number of examples')
+    parser.add_argument('--test_batches', type=int, default=np.inf,help = 'Number of test batches')
     parser.add_argument('--alpha', type=float, default=.9,help = 'Number of examples')
     parser.add_argument('--prime', action='store_true', help='Use the priming data')
     parser.add_argument('--retrain', action='store_true', help='Recache the image features')
