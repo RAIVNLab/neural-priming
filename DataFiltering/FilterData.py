@@ -2,7 +2,6 @@ from concurrent import futures
 import time
 import sqlite3
 from pathlib import Path
-import download_urls
 import argparse
 import subprocess
 import os
