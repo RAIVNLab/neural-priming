@@ -5,7 +5,7 @@ from PIL import Image
 import json
 from tqdm import tqdm
 
-def zeroshot_classifier(classnames, templates, model, tokenizer, args):
+def zeroshot_classifier(classnames, templates, model, tokenizer):
 	with torch.no_grad():
 		zeroshot_weights = []
 		for classname in tqdm(classnames):
