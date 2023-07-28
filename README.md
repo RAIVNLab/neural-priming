@@ -8,6 +8,8 @@ Pytorch implementation of [Neural Priming for Sample-Efficient Adaptation](https
 
 ## Getting Started
 
+If you'd like a quick demo of our code we have a  [collab notebook](https://colab.research.google.com/drive/1FkwnkfHCwBjsxsfy_WdxF6W_m6US28ft?usp=sharing).
+
 ### Installation
 
 1. Clone this repository to your local machine using the following command:
