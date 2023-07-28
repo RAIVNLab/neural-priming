@@ -5,18 +5,22 @@ from PIL import Image
 import json
 from tqdm import tqdm
 
-def zeroshot_classifier(classnames, templates, model, tokenizer):
+def zeroshot_classifier(classnames, templates, model, tokenizer, args):
 	with torch.no_grad():
 		zeroshot_weights = []
 		for classname in tqdm(classnames):
 			texts = [template.format(classname) for template in templates] #format with class
-			texts = tokenizer(texts).cuda() #tokenize
+			texts = tokenizer(texts)
+			if next(model.parameters()).is_cuda:
+				texts.cuda()
 			class_embeddings = model.encode_text(texts) #embed with text encoder
 			class_embeddings /= class_embeddings.norm(dim=-1, keepdim=True)
 			class_embedding = class_embeddings.mean(dim=0)
 			class_embedding /= class_embedding.norm()
 			zeroshot_weights.append(class_embedding)
-		zeroshot_weights = torch.stack(zeroshot_weights, dim=1).cuda()
+		zeroshot_weights = torch.stack(zeroshot_weights, dim=1)
+		if next(model.parameters()).is_cuda:
+			zeroshot_weights = zeroshot_weights.cuda()
 	return zeroshot_weights
 
 def zeroshot_classifier_gpt(classnames, model, tokenizer, dataset = None, templates=None, use_both=False):
@@ -64,7 +68,9 @@ def zeroshot_classifier_gpt(classnames, model, tokenizer, dataset = None, templa
 
 			for t in gpt3_prompts[classnames[i]]:
 				texts.append(t)
-			texts = tokenizer(texts).cuda() #tokenize
+			texts = tokenizer(texts) #tokenize
+			if next(model.parameters()).is_cuda:
+				texts = texts.cuda()
 			class_embeddings = model.encode_text(texts) #embed with text encoder
 			class_embeddings /= class_embeddings.norm(dim=-1, keepdim=True)
 			class_embedding = class_embeddings.mean(dim=0)
