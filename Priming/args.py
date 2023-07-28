@@ -1,6 +1,6 @@
 import argparse
 import os
-import numpy
+import numpy as np
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
