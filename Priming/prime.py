@@ -269,7 +269,7 @@ else:
 text_probs = (test_set_cpu @ text_features_new.T).argmax(axis=-1)
 acc = (test_labels == text_probs).mean()
 print("text zero-shot: {}".format(acc))
-np.save(results_path + 'accuracy' + '_' + experiment_ID, acc)
+np.save(results_path + 'accuracy' + '_' + experiment_ID + args.prime, acc)
 
 
 
