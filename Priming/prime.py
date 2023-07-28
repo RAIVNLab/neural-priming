@@ -185,7 +185,11 @@ print('Handling test image features')
 if args.retrain:
     test_set_cpu = None
     test_labels = None
+    i=0
     for x,y in tqdm(test_set):
+        i+=1
+        if i > args.test_batches:
+            break
         if args.cuda:
             x = x.cuda()
         feats = model.encode_image(x).detach().cpu()
