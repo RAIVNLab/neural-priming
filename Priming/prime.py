@@ -127,10 +127,10 @@ if args.prime:
             # print(e)
             pass
 
-train_set = DataLoader(train_set, batch_size = args.batch_size, shuffle = True, num_workers = 5)
-test_set = DataLoader(test_set, batch_size = args.batch_size, shuffle = False, num_workers = 5)
+train_set = DataLoader(train_set, batch_size = args.batch_size, shuffle = True, num_workers = args.num_workers)
+test_set = DataLoader(test_set, batch_size = args.batch_size, shuffle = False, num_workers = args.num_workers)
 if args.prime:
-    subset = DataLoader(subset, batch_size = args.batch_size, shuffle = False, num_workers = 5)
+    subset = DataLoader(subset, batch_size = args.batch_size, shuffle = False, num_workers = args.num_workers)
 
 
  
