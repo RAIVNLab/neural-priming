@@ -62,25 +62,21 @@ if dataset_name in Shift_Datasets + ['ImageNet']:
     train_set = CustomDataset(args.train_path, preprocess)
 
 elif dataset_name == 'ImageNet-V2':
-    root = '/data/yfcc-tmp/data/ImageNetV2-matched-frequency/'
     split = 'val'
     test_set = ImageNetV2(root, preprocess)
     train_set = ImageNetV2(root, preprocess)
 
 elif dataset_name == 'sketch':
-    root = '/data/yfcc-tmp/data/sketch/'
     split = 'val'
     test_set = torchvision.datasets.ImageFolder(root, preprocess)
     train_set = torchvision.datasets.ImageFolder(root, preprocess)
 
 elif dataset_name == 'ImageNet-r':
-    root = '/tmp/imagenet-r/'
     split = 'val'
     test_set = CustomDataset(root, preprocess)
     train_set = CustomDataset(root, preprocess)
 
 elif dataset_name == 'ImageNet-a':
-    root = '/tmp/imagenet-a/'
     split = 'val'
     test_set = CustomDataset(root, preprocess)
     train_set = CustomDataset(root, preprocess)
