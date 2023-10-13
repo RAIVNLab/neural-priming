@@ -55,8 +55,9 @@ dataset_type = args.base_dataset
 model_type = args.model
 model, _, preprocess = open_clip.create_model_and_transforms(model_type, pretrained=args.base_dataset)
 
+
+#Use torchvision dataloaders when possible for train/test splits. Otherwise use custom loaders. 
 if dataset_name in Shift_Datasets + ['ImageNet']:
-    root = '/data/yfcc-tmp/data/imagenet/'
     split = 'val'
     test_set = CustomDataset(args.val_path, preprocess)
     train_set = CustomDataset(args.train_path, preprocess)
@@ -92,8 +93,6 @@ else:
         train_split = 'trainval'
     else:
         train_split = 'train'
-    
-
     dataset = torchvision.datasets.__getattribute__(dataset_name)
     test_set = dataset(root, split = test_split, transform = preprocess, download = True)
     train_set = dataset(root, split = train_split, transform = preprocess, download = True)
@@ -120,7 +119,6 @@ if args.prime:
             index = cti[j]
             idx_map[index] = i
         except Exception as e:
-            # print(e)
             pass
 
 train_set = DataLoader(train_set, batch_size = args.batch_size, shuffle = True, num_workers = args.num_workers)
@@ -147,8 +145,9 @@ if args.cupl:
     text_features = (text_features + text_features_cupl)/2
 
 
-print('Handling train image features')
+
 if args.retrain and dataset_name not in Shift_Datasets and args.shots > 0:
+    print('Processing train image features')
     train_set_cpu = None
     train_labels = None
     for x,y in tqdm(train_set):
@@ -177,8 +176,8 @@ else:
     train_set_cpu_sampled = []
     train_labels_sampled = []
 
-print('Handling test image features')
 if args.retrain:
+    print('Processing test image features')
     test_set_cpu = None
     test_labels = None
     i=0
