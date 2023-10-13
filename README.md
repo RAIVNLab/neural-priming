@@ -22,7 +22,7 @@ cd neural-priming
 ```
 5. (Optional) - Create a conda environment:
 ```bash
-conda create -n neural-priming-env python=3.8
+conda create -n neural-priming python=3.8
 ```
 6. Install the required dependencies from the requirements.txt file:
 ```bash
