@@ -8,7 +8,7 @@ Pytorch implementation of [Neural Priming for Sample-Efficient Adaptation](https
 
 ## Getting Started
 
-If you'd like a quick demo of our code we have a  [collab notebook](https://colab.research.google.com/drive/1FkwnkfHCwBjsxsfy_WdxF6W_m6US28ft?usp=sharing).
+If you'd like a demo of the code see the [collab notebook](https://colab.research.google.com/drive/1FkwnkfHCwBjsxsfy_WdxF6W_m6US28ft?usp=sharing).
 
 ### Installation
 
@@ -22,7 +22,7 @@ cd neural-priming
 ```
 5. (Optional) - Create a conda environment:
 ```bash
-conda create -n neural-priming-env python=3.8
+conda create -n neural-priming python=3.8
 ```
 6. Install the required dependencies from the requirements.txt file:
 ```bash
@@ -65,10 +65,10 @@ Alternatively, we provide code in the **Text Filtering and Downloading Data** se
 
 ### Zero-shot Priming
 Example commands for priming and evaluating the model:
-- ```python priming/prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path ./data/Flowers102 --retrain```
-- ```python priming/prime.py --dataset StanfordCars --shots 0 --prime --subset_path ./data/StanfordCars --retrain```
+- ```python Priming/prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path ./data/Flowers102 --retrain```
+- ```python Priming/prime.py --dataset StanfordCars --shots 0 --prime --subset_path ./data/StanfordCars --retrain```
 - ```
-  python priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet_subset --train_path ./data/ImageNet/train --val_path /data/ImageNet/val --retrain
+  python Priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet_subset --train_path ./data/ImageNet/train --val_path /data/ImageNet/val --retrain
   ```
 To run the equivalent baselines, omit the `--prime` flag. For example:
 
