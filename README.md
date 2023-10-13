@@ -65,10 +65,10 @@ Alternatively, we provide code in the **Text Filtering and Downloading Data** se
 
 ### Zero-shot Priming
 Example commands for priming and evaluating the model:
-- ```python priming/prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path ./data/Flowers102 --retrain```
-- ```python priming/prime.py --dataset StanfordCars --shots 0 --prime --subset_path ./data/StanfordCars --retrain```
+- ```python Priming/prime.py --dataset Flowers102 --shots 0 --alpha .7 --prime --subset_path ./data/Flowers102 --retrain```
+- ```python Priming/prime.py --dataset StanfordCars --shots 0 --prime --subset_path ./data/StanfordCars --retrain```
 - ```
-  python priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet_subset --train_path ./data/ImageNet/train --val_path /data/ImageNet/val --retrain
+  python Priming/prime.py --dataset ImageNet --shots 0 --prime --cupl --subset_path /data/ImageNet_subset --train_path ./data/ImageNet/train --val_path /data/ImageNet/val --retrain
   ```
 To run the equivalent baselines, omit the `--prime` flag. For example:
 
