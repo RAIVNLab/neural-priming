@@ -134,7 +134,7 @@ if args.prime:
 print('creating OpenAI text classifier')
 model.eval()
 if args.cuda:
-    model.cuda()
+    model = model.cuda()
 tokenizer = open_clip.get_tokenizer(args.model)
 text = tokenizer(class_names)
 text_features = zeroshot_classifier(class_names, templates, model, tokenizer).cpu().numpy().T
