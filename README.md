@@ -135,7 +135,8 @@ For full list of command line options see `args.py`.
 
 ### Text filtering and Downloading Images
 To quickly filter through the LAION-2B dataset using text, we use SQLite in python. The data base parquets can be downloaded [here](https://drive.google.com/drive/folders/1yQfr6IYrG8_ViuQW7hOtHHr6yalrQ8d0?usp=sharing). We recommend [gdown](https://github.com/wkentaro/gdown) if downloading to a headless server. Once downloaded, place them in a `/parquets` folder. Each parquet is around 8 GB and all parquets are about 1 TB. If disk space is limited, you can download fewer parquets and filter on a subset of LAION-2B.  Also note that placing the parquets on SSD will significantly improve search speed. 
-
+You'll need the sqlite package which can be installed with 
+```pip install pysqlite3```.
 Given the class names for a dataset, the code will filter for LAION-2B entries which have captions containing the class name and write the meta data to a json. Example to command to filter for ImageNet classes:
 
 ```bash
